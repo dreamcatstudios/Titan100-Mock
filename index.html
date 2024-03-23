@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>3D Asset Rotation on Scroll</title>
+    <style>
+      body {
+        margin: 0;
+        background-color: black;
+        overflow-x: hidden;
+        color: white;
+        font-family: Arial, sans-serif;
+      }
+      canvas {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .container {
+        height: 400vh; /* Increase the height to create a larger scrollable area */
+      }
+      .star {
+        position: fixed;
+        width: 2px;
+        height: 2px;
+        background-color: white;
+        border-radius: 50%;
+      }
+      .text {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 300px;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        transition: opacity 0.5s, transform 0.5s;
+        pointer-events: none;
+      }
+      .text.left {
+        left: -320px;
+      }
+      .text.right {
+        right: -320px;
+      }
+      .text.visible {
+        opacity: 1;
+      }
+      .text.visible.left {
+        left: 20px;
+        transform: translateY(-50%);
+      }
+      .text.visible.right {
+        right: 20px;
+        transform: translateY(-50%);
+      }
+      .text:not(.visible) {
+        transition-delay: 0.25s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <canvas id="myCanvas"></canvas>
+      <div class="text left" data-position="0.1">
+        <h2>Earth</h2>
+        <p>
+          Earth is the third planet from the Sun and the only astronomical
+          object known to harbor life.
+        </p>
+      </div>
+      <div class="text right" data-position="0.4">
+        <h2>Atmosphere</h2>
+        <p>
+          Earth's atmosphere consists of 78% nitrogen, 21% oxygen, and trace
+          amounts of other gases.
+        </p>
+      </div>
+      <div class="text left" data-position="0.7">
+        <h2>Oceans</h2>
+        <p>
+          About 71% of Earth's surface is covered with water, mostly by oceans.
+        </p>
+      </div>
+      <div class="text right" data-position="1.0">
+        <h2>Noice</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script>
+      // Initialize Three.js
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(
+        45,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      const renderer = new THREE.WebGLRenderer({
+        canvas: document.getElementById("myCanvas"),
+        antialias: true,
+      });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      // Load the glb asset
+      const loader = new THREE.GLTFLoader();
+      let asset;
+      loader.load("./assets/models/person.glb", function (gltf) {
+        asset = gltf.scene;
+        scene.add(asset);
+
+        // Adjust the scale of the asset
+        const scaleFactor = 2; // Adjust this value to make the model bigger or smaller
+        asset.scale.set(scaleFactor, scaleFactor, scaleFactor);
+
+        // Center the asset in the scene
+        const box = new THREE.Box3().setFromObject(asset);
+        const center = box.getCenter(new THREE.Vector3());
+        asset.position.sub(center);
+      });
+
+      // Add lights to the scene
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+      scene.add(ambientLight);
+
+      const pointLight = new THREE.PointLight(0xffffff, 1);
+      pointLight.position.set(5, 5, 5);
+      scene.add(pointLight);
+
+      // Position the camera
+      camera.position.z = 5;
+
+      // Render the scene
+      function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      // Asset rotation on scroll
+      window.addEventListener("scroll", function () {
+        const scrollPosition = window.scrollY;
+        const maxScrollPosition =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercentage = scrollPosition / maxScrollPosition;
+
+        // Update the asset's rotation based on scroll percentage
+        if (asset) {
+          asset.rotation.y = scrollPercentage * Math.PI; // Rotate 180 degrees (Math.PI radians)
+        }
+
+        // Show/hide text based on scroll position
+        const textElements = document.querySelectorAll(".text");
+        textElements.forEach((textElement) => {
+          const position = parseFloat(
+            textElement.getAttribute("data-position")
+          );
+          if (scrollPercentage >= position) {
+            textElement.classList.add("visible");
+          } else {
+            textElement.classList.remove("visible");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
