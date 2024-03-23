@@ -2,14 +2,20 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 /* Utility Classes */
+
 #model-container {
   width: 100%;
-  height: 600px;
+  height: 100vh;
   position: relative;
   z-index: 1;
+}
+
+.relative {
+  position: relative;
 }
 
 .text-center {
@@ -45,6 +51,43 @@
   line-height: 1;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.semibold {
+  font-weight: semibold;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.margin-top-20 {
+  margin-top: 20px;
+}
+
+.margin-top-40 {
+  margin-top: 40px;
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+
+.margin-bottom-40 {
+  margin-bottom: 40px;
+}
 /* Utility Classes */
 .navigation {
   position: absolute;
@@ -108,7 +151,6 @@ body {
   background-color: black;
   overflow-x: hidden;
   color: white;
-  font-family: Arial, sans-serif;
 }
 
 canvas {
@@ -119,7 +161,7 @@ canvas {
 }
 
 .container {
-  height: 400vh;
+  height: 900vh;
   position: relative;
   z-index: 1;
 }
@@ -165,12 +207,12 @@ canvas {
 
 /* Section Code */
 .section {
+  position: relative;
   width: 100%;
   height: 100vh;
   padding: 60px 0;
   background-color: #000;
   color: #fff;
-  position: relative;
   z-index: 2;
 }
 
@@ -186,6 +228,31 @@ canvas {
   line-height: 1.5;
   margin-bottom: 20px;
 }
+
+/* Market Section */
+
+#market-section img {
+  width: 100%;
+  height: 100%;
+}
+
+#market-show-div h1 {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  color: white;
+  font-size: 32px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#market-show-div:hover h1 {
+  opacity: 1;
+}
+
+/* Market Section */
 
 /* Footer Code */
 footer {
