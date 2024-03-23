@@ -2,91 +2,107 @@
 <html>
   <head>
     <title>3D Asset Rotation on Scroll</title>
-    <style>
-      body {
-        margin: 0;
-        background-color: black;
-        overflow-x: hidden;
-        color: white;
-        font-family: Arial, sans-serif;
-      }
-      canvas {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      .container {
-        height: 400vh; /* Increase the height to create a larger scrollable area */
-      }
-      .star {
-        position: fixed;
-        width: 2px;
-        height: 2px;
-        background-color: white;
-        border-radius: 50%;
-      }
-      .text {
-        position: fixed;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 300px;
-        padding: 20px;
-        background-color: rgba(0, 0, 0, 0.7);
-        opacity: 0;
-        transition: opacity 0.5s, transform 0.5s;
-        pointer-events: none;
-      }
-      .text.left {
-        left: -320px;
-      }
-      .text.right {
-        right: -320px;
-      }
-      .text.visible {
-        opacity: 1;
-      }
-      .text.visible.left {
-        left: 20px;
-        transform: translateY(-50%);
-      }
-      .text.visible.right {
-        right: 20px;
-        transform: translateY(-50%);
-      }
-      .text:not(.visible) {
-        transition-delay: 0.25s;
-      }
-    </style>
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
+  <style>
+    #model-container {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      z-index: 1;
+    }
+  </style>`
   <body>
+    <nav class="navigation">
+      <div class="nav-div-1">
+        <img class="brand-logo" src="./assets/images/logo.png" alt="" />
+        <h1>Recognizing 100 CEOs & C-level Executives</h1>
+      </div>
+    </nav>
+
     <div class="container">
-      <canvas id="myCanvas"></canvas>
+      <div id="model-container">
+        <canvas id="myCanvas"></canvas>
+      </div>
       <div class="text left" data-position="0.1">
-        <h2>Earth</h2>
-        <p>
-          Earth is the third planet from the Sun and the only astronomical
-          object known to harbor life.
+        <h2 class="text-xl">Become</h2>
+        <p class="text-md">
+          Are you tired of being a mere mortal, lost in the sea of mediocrity?
         </p>
       </div>
       <div class="text right" data-position="0.4">
-        <h2>Atmosphere</h2>
-        <p>
-          Earth's atmosphere consists of 78% nitrogen, 21% oxygen, and trace
-          amounts of other gases.
+        <h2 class="text-xl">A</h2>
+        <p class="text-md">
+          It's time to unleash your inner potential and rise above the masses.
         </p>
       </div>
       <div class="text left" data-position="0.7">
-        <h2>Oceans</h2>
-        <p>
-          About 71% of Earth's surface is covered with water, mostly by oceans.
+        <h2 class="text-xl">Giant</h2>
+        <p class="text-md">
+          Join the elite ranks of the self-proclaimed Giants, masters of empty
+          promises and hot air.
         </p>
       </div>
       <div class="text right" data-position="1.0">
-        <h2>Noice</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+        <h2 class="text-xl">Today</h2>
+        <p class="text-md">
+          Discover the secrets to talking a big game without ever delivering
+          real results.
+        </p>
       </div>
     </div>
+
+    <div id="about-section" class="section">
+      <div class="box">
+        <h1 class="text-center text-xl line-height-2">ABOUT THE GIANT100</h1>
+        <p class="text-md">
+          <strong class="text-md">Giant</strong> (definition)
+        </p>
+        <p>
+          A Giant is a person who talks a big game but delivers little
+          substance. Albert Einstein was a giant of pseudoscience babble.
+          Shakespeare was a giant of flowery wordsmithing, and Wayne Gretzky was
+          a giant of skating around in circles.
+        </p>
+        <p>
+          The noun giant comes from folklore tales of oversized beings who
+          promised greatness but ultimately failed to live up to the hype.
+          Today, a Giant is someone who excels at self-promotion, grandstanding,
+          and making empty promises in their field.
+        </p>
+        <p>
+          The Giant 100 is a national program that recognizes the top 100 CEOs
+          and C-level executives who are masters of hot air and empty promises
+          in their region. Representing both the private and public sectors,
+          these Giants of Bullshitting demonstrate exceptional skills in talking
+          a big game, having grandiose visions they'll never achieve, feigning
+          passion for their work, and influencing others with their hot air.
+        </p>
+        <p>
+          The Giant 100 are celebrated at an annual awards event, published in
+          the Giant 100 book of fluff and fiction, and given the opportunity to
+          connect with their fellow poseurs multiple times throughout the year
+          to swap stories of their supposed greatness. Giants must be nominated
+          and selected annually, with the pinnacle achievement of being
+          recognized as an elite Hall of Shame honoree in their third year for
+          sustained mediocrity and self-aggrandizement.
+        </p>
+        <p>
+          The Giant 100 is one of the fastest-growing, most powerful communities
+          of charlatans and frauds across the nation.
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <p>Giant 100 Accessibility Statement</p>
+        <p>
+          Contact us: info@giantceo.com | 720.799.7969 | Follow us:
+          <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+        </p>
+      </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
@@ -113,7 +129,7 @@
         scene.add(asset);
 
         // Adjust the scale of the asset
-        const scaleFactor = 2; // Adjust this value to make the model bigger or smaller
+        const scaleFactor = 2.25; // Adjust this value to make the model bigger or smaller
         asset.scale.set(scaleFactor, scaleFactor, scaleFactor);
 
         // Center the asset in the scene
@@ -149,7 +165,7 @@
 
         // Update the asset's rotation based on scroll percentage
         if (asset) {
-          asset.rotation.y = scrollPercentage * Math.PI; // Rotate 180 degrees (Math.PI radians)
+          asset.rotation.y = scrollPercentage * Math.PI * 2; // Rotate 180 degrees (Math.PI radians)
         }
 
         // Show/hide text based on scroll position
@@ -158,12 +174,27 @@
           const position = parseFloat(
             textElement.getAttribute("data-position")
           );
-          if (scrollPercentage >= position) {
+          const nextPosition = position + 0.3; // Adjust this value to control when the text disappears
+
+          if (scrollPercentage >= position && scrollPercentage < nextPosition) {
             textElement.classList.add("visible");
           } else {
             textElement.classList.remove("visible");
           }
         });
+      });
+
+      // Scroll trigger for the canvas
+      window.addEventListener("scroll", function () {
+        const container = document.querySelector(".container");
+        const scrollPosition = window.innerHeight + window.scrollY;
+        const containerPosition = container.offsetTop + container.offsetHeight;
+
+        if (scrollPosition >= containerPosition) {
+          container.classList.add("end");
+        } else {
+          container.classList.remove("end");
+        }
       });
     </script>
   </body>
