@@ -2,94 +2,202 @@
 <html>
   <head>
     <title>3D Asset Rotation on Scroll</title>
-    <style>
-      body {
-        margin: 0;
-        background-color: black;
-        overflow-x: hidden;
-        color: white;
-        font-family: Arial, sans-serif;
-      }
-      canvas {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      .container {
-        height: 400vh; /* Increase the height to create a larger scrollable area */
-      }
-      .star {
-        position: fixed;
-        width: 2px;
-        height: 2px;
-        background-color: white;
-        border-radius: 50%;
-      }
-      .text {
-        position: fixed;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 300px;
-        padding: 20px;
-        background-color: rgba(0, 0, 0, 0.7);
-        opacity: 0;
-        transition: opacity 0.5s, transform 0.5s;
-        pointer-events: none;
-      }
-      .text.left {
-        left: -320px;
-      }
-      .text.right {
-        right: -320px;
-      }
-      .text.visible {
-        opacity: 1;
-      }
-      .text.visible.left {
-        left: 20px;
-        transform: translateY(-50%);
-      }
-      .text.visible.right {
-        right: 20px;
-        transform: translateY(-50%);
-      }
-      .text:not(.visible) {
-        transition-delay: 0.25s;
-      }
-    </style>
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <body>
+    <nav class="navigation">
+      <div class="nav-div-1">
+        <img class="brand-logo" src="./assets/images/logo.png" alt="" />
+        <h1>Recognizing 100 CEOs & C-level Executives</h1>
+      </div>
+    </nav>
+
     <div class="container">
-      <canvas id="myCanvas"></canvas>
+      <div id="model-container">
+        <canvas id="myCanvas"></canvas>
+      </div>
       <div class="text left" data-position="0.1">
-        <h2>Earth</h2>
-        <p>
-          Earth is the third planet from the Sun and the only astronomical
-          object known to harbor life.
+        <h2 class="text-xl">Become</h2>
+        <p class="text-md">
+          Are you tired of being a mere mortal, lost in the sea of mediocrity?
         </p>
       </div>
       <div class="text right" data-position="0.4">
-        <h2>Atmosphere</h2>
-        <p>
-          Earth's atmosphere consists of 78% nitrogen, 21% oxygen, and trace
-          amounts of other gases.
+        <h2 class="text-xl">A</h2>
+        <p class="text-md">
+          It's time to unleash your inner potential and rise above the masses.
         </p>
       </div>
       <div class="text left" data-position="0.7">
-        <h2>Oceans</h2>
-        <p>
-          About 71% of Earth's surface is covered with water, mostly by oceans.
+        <h2 class="text-xl">Giant</h2>
+        <p class="text-md">
+          Join the elite ranks of the self-proclaimed Giants, masters of empty
+          promises and hot air.
         </p>
       </div>
       <div class="text right" data-position="1.0">
-        <h2>Noice</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+        <h2 class="text-xl">Today</h2>
+        <p class="text-md">
+          Discover the secrets to talking a big game without ever delivering
+          real results.
+        </p>
       </div>
     </div>
 
+    <div id="about-section" class="section">
+      <div class="box">
+        <h1 class="text-center text-xl line-height-2">ABOUT <i>THE</i> GIANT100</h1>
+        <p class="text-md">
+          <strong class="text-md">Giant</strong> (definition)
+        </p>
+        <p>
+          A Giant is a person who talks a big game but delivers little
+          substance. Albert Einstein was a giant of pseudoscience babble.
+          Shakespeare was a giant of flowery wordsmithing, and Wayne Gretzky was
+          a giant of skating around in circles.
+        </p>
+        <p>
+          The noun giant comes from folklore tales of oversized beings who
+          promised greatness but ultimately failed to live up to the hype.
+          Today, a Giant is someone who excels at self-promotion, grandstanding,
+          and making empty promises in their field.
+        </p>
+        <p>
+          The Giant 100 is a national program that recognizes the top 100 CEOs
+          and C-level executives who are masters of hot air and empty promises
+          in their region. Representing both the private and public sectors,
+          these Giants of Bullshitting demonstrate exceptional skills in talking
+          a big game, having grandiose visions they'll never achieve, feigning
+          passion for their work, and influencing others with their hot air.
+        </p>
+        <p>
+          The Giant 100 are celebrated at an annual awards event, published in
+          the Giant 100 book of fluff and fiction, and given the opportunity to
+          connect with their fellow poseurs multiple times throughout the year
+          to swap stories of their supposed greatness. Giants must be nominated
+          and selected annually, with the pinnacle achievement of being
+          recognized as an elite Hall of Shame honoree in their third year for
+          sustained mediocrity and self-aggrandizement.
+        </p>
+        <p>
+          The Giant 100 is one of the fastest-growing, most powerful communities
+          of charlatans and frauds across the nation.
+        </p>
+      </div>
+    </div>
+
+    <div id="market-section" class="section">
+      <div class="box">
+        <div class="margin-bottom-20">
+          <h1 class="text-xl line-height-2 uppercase">Giant100 Markets</h1>
+        </div>
+
+        <div class="grid">
+          <div id="market-show-div" class="relative">
+            <img
+              src="https://static.independent.co.uk/2023/06/23/15/iStock-468040530.jpg"
+              alt="Sunset behind a tree"
+            />
+            <h1>California</h1>
+          </div>
+          <div id="market-show-div" class="relative">
+            <img
+              src="https://www.visitarizona.com/imager/s3_us-west-1_amazonaws_com/aot-2020/images/Hero-Images/Phoenix-cityscape_b2b0b89039603b931027eb2900b66531.jpg"
+              alt="Road through a forest"
+            />
+            <h1>Arizona</h1>
+          </div>
+          <div id="market-show-div" class="relative">
+            <img
+              src="https://a.travel-assets.com/findyours-php/viewfinder/images/res70/332000/332960-Dallas.jpg"
+              alt="Tree-lined path"
+            />
+            <h1>Texas</h1>
+          </div>
+          <div id="market-show-div" class="relative">
+            <img
+              src="https://a.cdn-hotels.com/gdcs/production181/d1480/689ddae9-3fa1-4b7b-8bf4-140ae891c172.jpg?impolicy=fcrop&w=800&h=533&q=medium"
+              alt="Flowers in a field"
+            />
+            <h1>Wisconssin</h1>
+          </div>
+          <div id="market-show-div" class="relative">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Chicago_city_view.jpg/800px-Chicago_city_view.jpg"
+            alt="Autumn colors by a lake"
+          />
+          <h1>Chicago</h1>
+        </div>
+        <div id="market-show-div" class="relative">
+          <img
+            src="https://images.mansionglobal.com/im-627483?width=1280&size=1.33333333"
+            alt="Snow-capped mountains"
+          />
+          <h1>San Francisco</h1>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div id="form-section" class="section">
+      <div class="box">
+        <h1 class="text-xl line-height-2 uppercase">Register Today!</h1>
+        <div class="form-container">
+          <form id=”contact” onsubmit="return postToGoogle();">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input 
+              type="text" 
+              id="name" 
+              name="entry .2005620554" 
+              required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input 
+              type="email" 
+              id="email" 
+              name="entry .1045781291" 
+              required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone:</label>
+              <input 
+              type="tel" 
+              id="phone" 
+              name="entry .1065046570" 
+              required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message:</label>
+              <textarea 
+              id="message"
+              name="entry .1166974658" 
+              required></textarea>
+            </div>
+            <div class="form-group">
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    <footer>
+      <div class="footer-content">
+        <p>Giant 100 Accessibility Statement</p>
+        <p>
+          Contact us: info@giantceo.com | 720.799.7969 | Follow us:
+          <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+        </p>
+      </div>
+    </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script>
       // Initialize Three.js
       const scene = new THREE.Scene();
@@ -113,7 +221,7 @@
         scene.add(asset);
 
         // Adjust the scale of the asset
-        const scaleFactor = 2; // Adjust this value to make the model bigger or smaller
+        const scaleFactor = 2.25; // Adjust this value to make the model bigger or smaller
         asset.scale.set(scaleFactor, scaleFactor, scaleFactor);
 
         // Center the asset in the scene
@@ -149,7 +257,7 @@
 
         // Update the asset's rotation based on scroll percentage
         if (asset) {
-          asset.rotation.y = scrollPercentage * Math.PI; // Rotate 180 degrees (Math.PI radians)
+          asset.rotation.y = scrollPercentage * Math.PI * 2; // Rotate 180 degrees (Math.PI radians)
         }
 
         // Show/hide text based on scroll position
@@ -158,13 +266,58 @@
           const position = parseFloat(
             textElement.getAttribute("data-position")
           );
-          if (scrollPercentage >= position) {
+          const nextPosition = position + 0.3; // Adjust this value to control when the text disappears
+
+          if (scrollPercentage >= position && scrollPercentage < nextPosition) {
             textElement.classList.add("visible");
           } else {
             textElement.classList.remove("visible");
           }
         });
       });
+
+      // Scroll trigger for the canvas
+      window.addEventListener("scroll", function () {
+        const container = document.querySelector(".container");
+        const scrollPosition = window.innerHeight + window.scrollY;
+        const containerPosition = container.offsetTop + container.offsetHeight;
+
+        if (scrollPosition >= containerPosition) {
+          container.classList.add("end");
+        } else {
+          container.classList.remove("end");
+        }
+      });
+
+      //form 
+      function postToGoogle() {
+        var field1 = $("#Name").val();
+        var field2 = $("#Email").val();
+        var field3 = $("#Phone").val();
+        var field4 = $("#Message").val();
+  
+        $.ajax({
+            url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeXpqYM2GzKNPIp3IwuplXoVEG7iordIBC-3SRIUb9j6LuB6w/formResponse",
+            
+          //add your google form generated numbers below which are also the 'names' of your inputs     
+          data: {
+            "entry.2005620554": field1,
+            "entry.1045781291": field2,
+            "entry.1065046570": field3,
+            "entry.1166974658": field4
+          },
+          type: "POST",
+          dataType: "xml",
+          success: function (d) {
+            $('#contact').trigger('reset');
+          },
+          error: function (x, y, z) {
+            $('#contact').trigger('reset');
+          }
+        });
+        return false;
+      }
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </body>
 </html>

@@ -153,6 +153,25 @@ function scroll(e) {
   }
   scrollY = -evt.y;
 }
+
+
+gsap.to('.section',{
+  background: 'white',
+  color : black,
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 mobile example
 function onTouchStart (e) {
