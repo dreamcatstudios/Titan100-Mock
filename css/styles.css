@@ -284,6 +284,16 @@ canvas {
   margin-bottom: 20px;
 }
 
+span{
+  color: rgb(119, 0, 128);
+}
+
+.form-submit{
+  border : 1px solid white;
+  background-color: transparent;
+  font-size: 1.1em;
+}
+
 .form-group label {
   display: block;
   font-weight: bold;
@@ -312,6 +322,13 @@ canvas {
   cursor: pointer;
   font-size: 16px;
 }
+
+.register-head{
+  font-size: 3em;
+  text-transform : uppercase;
+}
+
+
 
 .form-group button:hover {
   background-color: #fafafa;

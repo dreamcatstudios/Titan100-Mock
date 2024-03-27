@@ -160,32 +160,4 @@ gsap.to('.section',{
   color : black,
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-mobile example
-function onTouchStart (e) {
-    var t = (e.targetTouches) ? e.targetTouches[0] : e;
-    touchStartY = t.pageY;
-};
-
-function onTouchMove (e) {
-    var evt = _event;
-    var t = (e.targetTouches) ? e.targetTouches[0] : e;
-    evt.deltaY = (t.pageY - touchStartY) * 5;
-    touchStartY = t.pageY;
-
-		scroll(e)
-};*/
-
 init();
