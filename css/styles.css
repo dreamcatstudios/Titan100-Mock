@@ -231,12 +231,26 @@ canvas {
 
 /* Market Section */
 
+#market-section {
+  height: 100vh;
+  background-color: #2d2d2d;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.relative {
+  overflow: hidden;
+  transition: all ease 0.5s;
+}
+
 #market-section img {
   width: 100%;
   height: 100%;
 }
 
-#market-show-div h1 {
+.relative h1 {
   position: absolute;
   top: 50%;
   left: 0;
@@ -248,8 +262,12 @@ canvas {
   transition: opacity 0.3s ease;
 }
 
-#market-show-div:hover h1 {
+.relative:hover h1 {
   opacity: 1;
+}
+.relative:hover img {
+  transform: scale(1.01);
+  opacity: 0.5;
 }
 
 /* Market Section */
