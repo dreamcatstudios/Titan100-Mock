@@ -5,3 +5,6 @@ module.exports = {
   },
   ui: false,
 };
+
+//Command to run a local server
+//browser-sync start --config config.js
