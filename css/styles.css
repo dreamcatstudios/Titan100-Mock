@@ -2,8 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "poppins", system-ui;
 }
+
 
 /* Utility Classes */
 
@@ -215,11 +216,14 @@ canvas {
 .section {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   padding: 60px 0;
   background-color: #000;
   color: #fff;
   z-index: 2;
+}
+#about-section{
+  padding-top: 10vh;
 }
 
 .section h1 {
@@ -237,13 +241,19 @@ canvas {
 
 /* Market Section */
 
+
 .relative{
   overflow: hidden;
   transition: all ease .5s;
+  border-radius: 10px ;
 }
 
+.box{
+  margin-top: -35vh;
+}
 #market-section img {
   width: 100%;
+  transition: all ease .5s;
   height: 100%;
 }
 
@@ -263,15 +273,110 @@ canvas {
   opacity: 1;
 }
 .relative:hover img{
-  transform: scale(1.01);
+  transform: scale(1.1);
 }
 
 /* Market Section */
 
+
+
+/* new section  starts*/
+.peddle{
+  position: relative;
+  top: 20vh;
+  height: 4vh;
+  width: 3vw;
+  transform: rotate(-90deg);
+  /* display: none; */
+}
+.peddle img{
+  height:100%;
+  width: 100%;
+  object-fit: contain;
+}
+.box1 {
+  display: flex;
+  gap: 10vw;
+  height: 100vh;
+  width: 100%;
+}
+#colorWheel {
+  width: 40vh;
+  height: 40vh;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 10s infinite linear;
+  margin-left : 15vw;
+  margin-bottom : 10vh;
+}
+#color-wheel-text {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+}
+.color {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  transform-origin: bottom right;
+  overflow: hidden;
+  border: 5px solid rgb(119, 0, 128);
+}
+.color img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.color:nth-child(1) {
+  background-color: transparent;
+  transform: rotate(0deg) skewY(30deg);
+}
+
+.color:nth-child(2) {
+  background-color: transparent;
+  transform: rotate(60deg) skewY(30deg);
+}
+
+.color:nth-child(3) {
+  background-color: transparent;
+  transform: rotate(120deg) skewY(30deg);
+}
+
+.color:nth-child(4) {
+  background-color: transparent;
+  transform: rotate(180deg) skewY(30deg);
+}
+
+.color:nth-child(5) {
+  background-color: transparent;
+  transform: rotate(240deg) skewY(30deg);
+}
+
+.color:nth-child(6) {
+  background-color: transparent;
+  transform: rotate(300deg) skewY(30deg);
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* new section ends */
+
+
+
 /* Form  */
 
 #form-section {
-  height: 100vh;
+  min-height: 100vh;
   background-color: #000;
   width: 100%;
 }
@@ -284,12 +389,31 @@ canvas {
   margin-bottom: 20px;
 }
 
+label{
+  font-size: 1.1em;
+}
+
+input{
+  background-color: transparent;
+  border-radius: 10px;
+  outline: none;
+  margin-top : .5em;
+  color : white;
+}
+
+#Message{
+  margin-top : .5em;
+  background-color: transparent;
+  outline: none;
+  color : white;
+}
+
 span{
   color: rgb(119, 0, 128);
 }
 
 .form-submit{
-  border : 1px solid white;
+  border : 1px solid rgba(255, 255, 255, 0.619);
   background-color: transparent;
   font-size: 1.1em;
 }
@@ -334,22 +458,25 @@ span{
   background-color: #fafafa;
 }
 
-/*  */
 
 /* Footer Code */
 footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #2d2d2d;
   color: #ffffff;
-  padding: 20px;
+  padding: 10px;
   font-family: Arial, sans-serif;
   text-align: center;
   position: relative;
   z-index: 2;
+  font-weight: 800;
 }
 
 .footer-content {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 100 auto;
 }
 
 .footer-content p {
@@ -369,6 +496,7 @@ footer {
 @media screen and (max-width: 768px) {
   .text {
     width: 80%;
+    top: 15vh;
   }
 
   .text.visible.left,
@@ -382,8 +510,11 @@ footer {
     padding: 40px 0;
     height: auto !important;
   }
-
   #about-section p {
     font-size: 16px;
+  }
+  #market-section {
+    margin-top: 10vh;
+
   }
 }

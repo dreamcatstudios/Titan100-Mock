@@ -7,11 +7,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fruktur:ital@0;1&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  
   <body>
     <nav class="navigation">
       <div class="nav-div-1">
         <img class="brand-logo" src="./assets/images/logo.png" alt="" />
-        <h1><span>Recognizing 100 CEOs</span> & C-level Executives</h1>
+        <h1>Recognizing 100 CEOs <span>&</span> C-level Executives</h1>
       </div>
     </nav>
 
@@ -51,10 +54,10 @@
       <div class="box">
         <h1 class="text-center text-xl line-height-2">ABOUT <i><span>THE</span></i> GIANT100</h1>
         <p class="text-md">
-          <strong class="text-md">Giant</strong> (definition)
+          <strong class="text-md"><span>Giant</span></strong> (definition)
         </p>
         <p>
-          A Giant is a person who talks a big game but delivers little
+          A <span><i>Giant</i></span> is a person who talks a big game but delivers little
           substance. Albert Einstein was a giant of pseudoscience babble.
           Shakespeare was a giant of flowery wordsmithing, and Wayne Gretzky was
           a giant of skating around in circles.
@@ -66,18 +69,18 @@
           and making empty promises in their field.
         </p>
         <p>
-          The Giant 100 is a national program that recognizes the top 100 CEOs
+          The <span><i>Giant</i></span> 100 is a national program that recognizes the top 100 CEOs
           and C-level executives who are masters of hot air and empty promises
           in their region. Representing both the private and public sectors,
-          these Giants of Bullshitting demonstrate exceptional skills in talking
+          these <span><i>Giant</i></span> of Bullshitting demonstrate exceptional skills in talking
           a big game, having grandiose visions they'll never achieve, feigning
           passion for their work, and influencing others with their hot air.
         </p>
         <p>
           The Giant 100 are celebrated at an annual awards event, published in
-          the Giant 100 book of fluff and fiction, and given the opportunity to
+          the <span><i>Giant</i></span> 100 book of fluff and fiction, and given the opportunity to
           connect with their fellow poseurs multiple times throughout the year
-          to swap stories of their supposed greatness. Giants must be nominated
+          to swap stories of their supposed greatness. <span><i>Giant</i></span> must be nominated
           and selected annually, with the pinnacle achievement of being
           recognized as an elite Hall of Shame honoree in their third year for
           sustained mediocrity and self-aggrandizement.
@@ -92,7 +95,8 @@
     <div id="market-section" class="section">
       <div class="box">
         <div class="margin-bottom-20">
-          <h1 class="text-xl line-height-2 uppercase">Giant100 Markets</h1>
+          <h1 class="text-xl line-height-2 uppercase">Giant100 <span>Markets</span>
+          </h1>
         </div>
 
         <div class="grid">
@@ -142,11 +146,34 @@
     </div>
     </div>
 
+    <!-- New section added here -->
+    <div id="page4" class="section new-sec">
+      <div class="box1">
+      <div id="colorWheel">
+          <div class="color">
+          </div>
+          <div class="color">
+          </div>
+          <div class="color">
+          </div>
+          <div class="color">
+          </div>
+          <div class="color">
+          </div>
+          <div class="color">
+          </div>
+      </div>
+      <div class="peddle"><img src="./assets/images/pedal.png" alt=""></div>
+      <div id="color-wheel-text">
+        
+      </div>
+    </div>
+
     <div id="form-section" class="section">
       <div class="box">
         <h1 class="register-head">Register <span>Today!</span></h1>
         <div class="form-container">
-          <form id=”contact” onsubmit="return postToGoogle();">
+          <form id="contact" onsubmit="return postToGoogle();">
             <div class="form-group">
               <label for="Name">Name</label>
               <input 
@@ -188,6 +215,7 @@
           </form>
         </div>
       </div>
+    </div>
 
     <footer>
       <div class="footer-content">
@@ -220,7 +248,7 @@
       // Load the glb asset
       const loader = new THREE.GLTFLoader();
       let asset;
-      loader.load("./assets/models/person.glb", function (gltf) {
+      loader.load("./assets/models/person2.glb", function (gltf) {
         asset = gltf.scene;
         scene.add(asset);
 
@@ -295,6 +323,8 @@
 
       //form 
       function postToGoogle() {
+        document.querySelector(".form-submit").innerHTML = "Submitted"
+
         var field1 = $("#Name").val();
         var field2 = $("#Email").val();
         var field3 = $("#Phone").val();

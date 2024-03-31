@@ -18,6 +18,9 @@ var maxHeight =
   (divContainer.clientHeight || divContainer.offsetHeight) - window.innerHeight;
 var span = document.querySelector("span");
 
+
+
+
 function initThree() {
   renderer.setPixelRatio(window.devicePixelRatio || 1);
   renderer.setClearColor(0x161216);
@@ -85,19 +88,16 @@ function animate() {
 
 function render() {
   var dtime = Date.now() - startTime;
-  // easing with treshold on 0.08 (should be between .14 & .2 for smooth animations)
   percentage = lerp(percentage, scrollY, 0.08);
   timeline.seek(percentage * (4500 / maxHeight));
   span.innerHTML =
     "Anim progress : " + Math.round(timeline.progress * 100) / 100 + "%";
 
-  // animate the cube
   cube.rotation.x += 0.01;
   cube.rotation.y += 0.0125;
   cube.rotation.z += 0.012;
   renderer.render(scene, camera);
 }
-// linear interpolation function
 function lerp(a, b, t) {
   return (1 - t) * a + t * b;
 }
@@ -107,15 +107,10 @@ function init() {
   initTimeline();
   window.addEventListener("resize", resize, { passive: true });
   divContainer.addEventListener("wheel", onWheel, { passive: false });
-  /*
-  mobile example
-  divContainer.addEventListener('touchstart', onTouchStart, { passive: false });
-  divContainer.addEventListener('touchmove', onTouchMove, { passive: false });*/
   animate();
 }
 
 function resize() {
-  // cointainer height - window height to limit the scroll at the top of the screen when we are at the bottom of the container
   maxHeight =
     (divContainer.clientHeight || divContainer.offsetHeight) -
     window.innerHeight;
@@ -127,18 +122,17 @@ function resize() {
 }
 
 function onWheel(e) {
-  // for embedded demo
   e.stopImmediatePropagation();
   e.preventDefault();
   e.stopPropagation();
 
   var evt = _event;
   evt.deltaY = e.wheelDeltaY || e.deltaY * -1;
-  // reduce by half the delta amount otherwise it scroll too fast
   evt.deltaY *= 0.5;
 
   scroll(e);
 }
+
 
 function scroll(e) {
   var evt = _event;
@@ -153,11 +147,27 @@ function scroll(e) {
   }
   scrollY = -evt.y;
 }
-
-
-gsap.to('.section',{
-  background: 'white',
-  color : black,
-})
-
 init();
+
+
+const colorWheel = document.getElementById('colorWheel');
+const colorWheelText = document.getElementById('color-wheel-text');
+document.getElementById('colorWheel').addEventListener('animationiteration', handleWheelRotation);
+let currentRotation = 0;
+const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo'];
+function handleWheelRotation() {
+  currentRotation += 60;
+  if (currentRotation >= 360) {
+    currentRotation = 0;
+  }
+  const colorIndex = currentRotation / 60;
+  const currentColor = colors[colorIndex];
+  colorWheelText.innerHTML = `The current color is ${currentColor}`;
+  console.log(currentColor);
+}
+document.getElementById('colorWheel').addEventListener('animationiteration', handleWheelRotation);
+console.log(document.getElementById('colorWheel'));
+console.log(document.getElementById('color-wheel-text'));
+
+
+
